@@ -34,7 +34,8 @@ public class MenuController {
     public ApplicationState process(ApplicationState state) {
         try {
             return controllers.get(state).process();
-        } catch (Exception exception) {
+        } catch (IllegalArgumentException exception) {
+            outputView.printExceptionMessage(exception);
             return ApplicationState.APPLICATION_EXIT;
         }
     }
