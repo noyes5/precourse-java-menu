@@ -28,6 +28,10 @@ public class Coach {
         return name;
     }
 
+    public List<Menu> getRecommendMenus() {
+        return recommendMenus;
+    }
+
     private boolean isCoachNameInRange(String name) {
         return name.length() < MIN_COACH_NAME || name.length() > MAX_COACH_NAME;
     }
