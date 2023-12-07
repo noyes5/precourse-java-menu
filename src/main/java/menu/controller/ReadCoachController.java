@@ -59,11 +59,8 @@ public class ReadCoachController implements ControllerHandler {
 
     private static List<Menu> findMenusByName(List<String> inedibleMenus) {
         return inedibleMenus.stream()
+                .filter(menuName -> !menuName.isEmpty())
                 .map(Menus::findMenuByName)
                 .collect(Collectors.toList());
-    }
-
-    private static List<Coach> convertNameToCoach(List<String> coachNames) {
-        return coachNames.stream().map(Coach::new).collect(Collectors.toList());
     }
 }
