@@ -1,8 +1,10 @@
 package menu.util;
 
 import static menu.util.Constants.MAX_COACH_SIZE;
+import static menu.util.Constants.MAX_INEDIBLE_MENU_SIZE;
 import static menu.util.Constants.MIN_COACH_SIZE;
 import static menu.util.ExceptionMessage.INVALID_COACH_SIZE;
+import static menu.util.ExceptionMessage.INVALID_INEDIBLE_MENU_SIZE;
 import static menu.util.ExceptionMessage.INVALID_INPUT;
 
 import java.util.List;
@@ -22,5 +24,12 @@ public class InputValidator {
             throw new IllegalArgumentException(INVALID_COACH_SIZE.getMessage());
         }
         coaches.forEach(InputValidator::validateInput);
+    }
+
+    public static void validateInEdibleMenus(List<String> inEdibleMenus) {
+        if (inEdibleMenus.size() > MAX_INEDIBLE_MENU_SIZE) {
+            throw new IllegalArgumentException(INVALID_INEDIBLE_MENU_SIZE.getMessage());
+        }
+        inEdibleMenus.forEach(InputValidator::validateInput);
     }
 }
